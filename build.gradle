@@ -1,0 +1,29 @@
+group 'com.ihenjoy'
+version '1.0.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.7
+def springVersion = '4.0.2.RELEASE'
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile(
+            "org.springframework:spring-core:${springVersion}",
+            "org.springframework:spring-beans:${springVersion}",
+            "org.springframework:spring-context:${springVersion}",
+            "org.springframework:spring-aop:${springVersion}",
+            'org.slf4j:slf4j-api:1.7.6',
+            'org.apache.commons:commons-lang3:3.1',
+            "org.springframework:spring-context-support:${springVersion}",
+            "com.github.sgroschupf:zkclient:0.1"
+    )
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.11'
+}
